@@ -1,5 +1,7 @@
 package com.example.StrategyDesignPattern;
 
+import com.example.FactoryDesignPattern.Notification;
+import com.example.FactoryDesignPattern.NotificationFactory;
 import com.example.StrategyDesignPattern.CoronaVirus.Covid19Treatment;
 import com.example.StrategyDesignPattern.CoronaVirus.SarsTreatment;
 import com.example.StrategyDesignPattern.CoronaVirus.Treatment;
@@ -14,6 +16,7 @@ public class DesignPatternApplication {
 
     public static void main(String[] args) {
         /*Testing Design Pattern Strategy*/
+
         /*Execute CoronaVirus Exemple */
         Treatment covidTreatment = new Treatment(new Covid19Treatment());
         System.out.println(covidTreatment.vaccinateInjection());
@@ -27,6 +30,12 @@ public class DesignPatternApplication {
         System.out.println("unit fly it can cover"+fly.Move(1));
         Context tunnelUnder = new Context(new TunnelUnder());
         System.out.println("unit tunnels under it can cover"+tunnelUnder.Move(1));
+
+
+        /*Testing Design Pattern Factory*/
+        NotificationFactory notificationFactory = new NotificationFactory();
+        Notification notification = notificationFactory.createNotification("SMS");
+        notification.notifyUser();
     }
 
 }
